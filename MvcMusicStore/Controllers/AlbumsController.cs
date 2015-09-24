@@ -26,6 +26,7 @@ namespace MvcMusicStore.Controllers
         }
 
         // GET: Albums
+        [Route("Albums/All")]
         public ActionResult Index()
         {
             // Let´s get the model
@@ -37,6 +38,7 @@ namespace MvcMusicStore.Controllers
         }
 
         // GET: Albums/Details/5
+        [Route("Album/{id:int}")] //Will show the url http://localhost:36038/Album/1 instead of /Albums/1
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -54,6 +56,8 @@ namespace MvcMusicStore.Controllers
         // GET: Albums/Create
         // Automatically uses get
         // this displays the form to the user
+        //
+        //[Authorize()]//This means that you have yo log on, it can be putted in specific required actions or in the whole controller
         public ActionResult Create()
         {
             return View();
